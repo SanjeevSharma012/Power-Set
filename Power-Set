@@ -1,0 +1,20 @@
+// User function Template for Java
+
+class Solution {
+    public List<String> AllPossibleStrings(String s) {
+        List<String> list = new ArrayList<>();
+        Subset("",s,0 ,list);
+        Collections.sort(list);
+        return list ;
+        
+    }
+        public void Subset(String ans , String s, int idx ,List<String> list){
+            if(idx == s.length()) {
+                list.add(ans);
+                return ;
+            }
+            
+             Subset(ans+s.charAt(idx),s,idx+1 , list); //pair
+             Subset(ans,s,idx+1, list); // not pair
+        }
+}
